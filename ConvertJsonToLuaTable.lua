@@ -42,13 +42,12 @@ local convertJsonToLuaTable = function(file_name)
     end
     fileContent = "return " .. fileContent
     local jsonConfig = nil
-    if load then 
-        jsonConfig = load(fileContent)() 
+    if loadstring then 
+        jsonConfig = loadstring(fileContent)() 
     else
-        jsonConfig = loadstring(fileContent)()
+        jsonConfig = load(fileContent)()
     end
     return jsonConfig
 end
 
--- local jsonConfigTable = convertJsonToLuaTable(configJsonPath)
 
